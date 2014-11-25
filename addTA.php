@@ -3,7 +3,8 @@
 <meta charset="utf-8">
 <body>
 <?php
-   include 'upload_file.php';
+  include 'connectdb.php';
+  include 'upload_file.php';
 ?>
 <h1>Add a new TA:</h1>
 <ol>
@@ -21,5 +22,8 @@
    echo "New TA was added!";
 ?>
 </ol>
+<?php
+   mysqli_close($connection);
+?>
 </body>
 </html>

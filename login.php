@@ -1,3 +1,54 @@
+<?php
+  session_start(); 
+//  echo '<p> start </p>';
+
+  $error_msg = "";
+  if(!isset($_SESSION['username'])){
+//    echo '<p> no username </p>';
+    
+    if(isset($_POST['usrGrp'])){
+
+//      echo '<p> usrGrp </p>';
+
+      $usrGrp = $_POST['usrGrp'];
+//      echo '<p>'.$usrGrp.'</p>';
+      $pwd = strtolower($_POST['pwd']);
+//      echo '<p>'.$pwd.'</p>';
+      if(!empty($usrGrp)){
+        if($usrGrp == 'Secretary' && $pwd == 'janice')
+        {
+//          echo '<p> sec </p>';
+          $_SESSION['username'] = $usrGrp;
+          $home_url = 'secretary.php';
+          header('Location: '.$home_url);
+        }
+        else if($usrGrp == 'Prof' && empty($pwd))
+        {
+//          echo '<p> prof </p>';
+          $_SESSION['username'] = $usrGrp;
+          $home_url = 'profp.php';
+          header('Location: '.$home_url);
+        }
+        else
+        {
+//          echo '<p> invalid 1 </p>';
+          $error_msg = 'invalid username or password.';
+        }
+      }
+      else
+      {    
+//        echo '<p> invalid 2 </p>';
+        $error_msg = 'invalid username or password.';
+      }
+    }
+  }
+  else
+  {
+//    $home_url = 'loged.php';
+//    header('Location: '.$home_url);
+  }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,14 +57,16 @@
 </head>
 <body>
 <h1>Western Teaching Assistant System</h1>
-<!--
-<form action="connectdb.php" method="post" enctype="multipart/form-data">
-Username: <input type="text" name="userID"><br>
-Password: <input type="password" name="pwd"><br>
-<input type="radio" name="usrGrp" value="Prof">Professor	 
-<input type="radio" name="usrGrp" value="Secretary">Secretary<br>
-<input type="submit" value="Login">
-</form>
--->
+<?php
+  if(!isset($_SESSION['username'])){
+//    echo '<p> 1 </p>';
+    echo '<p class="error">'.$error_msg.'</p>';
+    echo '<a href="index2.php"> Retry </a>';
+  }
+  else{
+//    echo '<p> 2 </p>';
+    echo '<p class="logon">Hello, '.$usrGrp.'</p>';
+  }
+?>
 </body>
 </html>

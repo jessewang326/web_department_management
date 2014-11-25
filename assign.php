@@ -6,16 +6,15 @@
 <ol>
 <?php
    $taID = $_POST["taID"];
-   $stuID = $_POST["studentID"];
-   $fn = $_POST["taFN"];
-   $ln = $_POST["taLN"];
-   $degree = $_POST["degree"];
-   $headSupID = $_POST["headSupervisorID"];
-   $query = 'INSERT INTO ta VALUES("' . $fn . '","' . $ln . '","' . $stuID . '","' . $taID . '","' . $degree . '","' . $headSupID . '")';
+   $courseNO = $_POST["courseNO"];
+   $year = $_POST["year"];
+   $term = $_POST["term"];
+   $students = $_POST["students"];
+   $query = 'INSERT INTO ta VALUES("' . $taID . '","' . $courseNO . '","' . $year . '","' . $term . '","' . $students . '")';
    if (!mysqli_query($connection, $query)) {
         die("Error: insert failed" . mysqli_error($connection));
     }
-   echo "New TA was added!";
+   echo "The TA is assgined to the course!";
 ?>
 </ol>
 </body>

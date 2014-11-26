@@ -15,21 +15,21 @@ include 'connectdb.php';
 <h1>Here are all the TAs:</h1>
 <ol>
 <?php
- $query = 'SELECT * FROM ta';
+ $query = 'SELECT * FROM prof';
  $result=mysqli_query($connection,$query);
  if (!$result) {
     die("database ta query failed.");
  }
  while ($row=mysqli_fetch_assoc($result)) {
     echo '<li>';
-    echo $row["taFN"]. ' ' . $row["taLN"]. ' ' . $row["taID"];
-    /////add ta pic later//////
-    echo '<img src="' . $row["image"] . '" height="60" width="60">';
+    echo $row["profFN"]. ' ' . $row["profLN"] . ' ' . $row["profID"];
  }
  mysqli_free_result($result);
- mysqli_close($connection);
 ?>
 </ol>
+<?php
+   mysqli_close($connection);
+?>
 </body>
 <?php
   echo '<a href="secretary.php"> Back </a> <br>';

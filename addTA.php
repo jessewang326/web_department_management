@@ -2,7 +2,6 @@
 session_start();
 if(isset($_SESSION['username'])){
   echo 'Hello, '.$_SESSION['username'].'!<br/>';
-  //echo '<a href="logout.php"> Log Out('.$_SESSION['username'].')</a>';
 }
 ?>
 
@@ -15,7 +14,6 @@ if(isset($_SESSION['username'])){
   include 'upload_file.php';
 ?>
 <h1>Add a new TA:</h1>
-<ol>
 <?php
    $taID = $_POST["taID"];
    $stuID = $_POST["studentID"];
@@ -29,7 +27,6 @@ if(isset($_SESSION['username'])){
     }
    echo "New TA was added!";
 ?>
-</ol>
 <?php
    mysqli_close($connection);
 ?>

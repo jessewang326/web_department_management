@@ -12,24 +12,40 @@
 <?php
 include 'connectdb.php';
 ?>
-<h1>Here are all the TAs:</h1>
+
+<h1>Here are all the Courses:</h1>
 <ol>
 <?php
- $query = 'SELECT * FROM ta';
+ $query = 'SELECT * FROM course';
  $result=mysqli_query($connection,$query);
  if (!$result) {
     die("database ta query failed.");
  }
  while ($row=mysqli_fetch_assoc($result)) {
     echo '<li>';
-    echo $row["taFN"]. ' ' . $row["taLN"]. ' ' . $row["taID"];
-    /////add ta pic later//////
-    echo '<img src="' . $row["image"] . '" height="60" width="60">';
+    echo $row["courseNO"]. ' ' . $row["courseName"];
+ }
+ mysqli_free_result($result);
+?>
+</ol>
+
+<h1>Here are all TAs and their assigned Courses:</h1>
+<ol>
+<?php
+ $query = 'SELECT * FROM assign';
+ $result=mysqli_query($connection,$query);
+ if (!$result) {
+    die("database ta query failed.");
+ }
+ while ($row=mysqli_fetch_assoc($result)) {
+    echo '<li>';
+    echo $row["taID"] . ' ' . $row["courseNO"] . ' ' . $row["year"] . ' ' . $row["term"] . ' ' . $row["students"];
  }
  mysqli_free_result($result);
  mysqli_close($connection);
 ?>
 </ol>
+
 </body>
 <?php
   echo '<a href="secretary.php"> Back </a> <br>';

@@ -12,15 +12,14 @@ if(isset($_SESSION['username'])){
 <?php
   include 'connectdb.php';
 ?>
-<h1>Add a new course:</h1>
+<h1>Add a new TA:</h1>
 <?php
-   $courseNO = $_POST["courseNO"];
-   $courseName = $_POST["courseName"];
-   $query = 'INSERT INTO course VALUES("' . $courseNO . '","' . $courseName . '")';
-   if (!mysqli_query($connection, $query)) {
-        die("Error: insert failed" . mysqli_error($connection));
-    }
-   echo "New course was added!";
+  $profID = $_POST["profID"];
+  $query = 'DELETE FROM prof WHERE profID = "' . $profID . '"';
+  if (!mysqli_query($connection, $query)) {
+    die("Error: insert failed" . mysqli_error($connection));
+  }
+  echo "The professor was deleted!<br>";
 ?>
 <?php
    mysqli_close($connection);
@@ -30,4 +29,7 @@ if(isset($_SESSION['username'])){
   echo '<a href="secretary.php"> Back </a> <br>';
   echo '<a href="logout.php"> Log Out('.$_SESSION['username'].')</a>';
 ?>
+</body>
 </html>
+</html>
+

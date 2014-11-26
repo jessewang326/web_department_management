@@ -1,8 +1,7 @@
 <?php
-session_start();
-if(isset($_SESSION['username'])){
+  session_start();
+  if(isset($_SESSION['username'])){
   echo 'Hello, '.$_SESSION['username'].'!<br/>';
-  //echo '<a href="logout.php"> Log Out('.$_SESSION['username'].')</a>';
 }
 ?>
 
@@ -12,7 +11,6 @@ if(isset($_SESSION['username'])){
 <body>
 <?php
   include 'connectdb.php';
-  include 'upload_file.php';
 ?>
 <h1>Add a new TA:</h1>
 <ol>
@@ -20,7 +18,7 @@ if(isset($_SESSION['username'])){
    $profID = $_POST["profID"];
    $fn = $_POST["profFN"];
    $ln = $_POST["profLN"];
-   $query = 'INSERT INTO ta VALUES("' . $fn . '","' . $ln . '","' . $profID . '")';
+   $query = 'INSERT INTO prof VALUES("' . $fn . '","' . $ln . '","' . $profID . '")';
    if (!mysqli_query($connection, $query)) {
         die("Error: insert failed" . mysqli_error($connection));
     }

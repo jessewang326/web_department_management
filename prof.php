@@ -19,8 +19,8 @@ if(isset($_SESSION['username'])){
 <h4>List the students of a professor:</h4>
 <form action="getAssignedStu.php" method="post" enctype="multipart/form-data">
 <table>
-<tr><td>TA's First Name: </td><td><input type="text" name="profFN"></td></tr>
-<tr><td>TA's Last Name: </td><td><input type="text" name="profLN"></td></tr>
+<tr><td>Professor's First Name: </td><td><input type="text" name="profFN"></td></tr>
+<tr><td>Professor's Last Name: </td><td><input type="text" name="profLN"></td></tr>
 </table>
 <input type="submit" value="getAssignedStu">
 </form>

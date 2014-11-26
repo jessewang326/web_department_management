@@ -97,6 +97,23 @@ TA's ID: <input type="text" name="profID"><br>
 <div id="course">
 <h4><a href="getCourses.php"> Course List </a></h4>
 
+<h4> Add a New Course:</h4>
+<form action="addCourse.php" method="post" enctype="multipart/form-data">
+<table>
+<tr><td>CourseNO: </td><td><input type="text" name="courseNO"></td></tr>
+<tr><td>Course Name: </td><td><input type="text" name="courseName"></td></tr>
+</table>
+<br>
+<input type="submit" value="addCourse">
+</form>
+
+<h4>Delete a Course:</h4>
+<form action="delCourse.php" method="post" enctype="multipart/form-data">
+CourseNO: <input type="text" name="courseNO"><br>
+<input type="submit" value="delCourse">
+</form>
+
+
 </div>
 
 

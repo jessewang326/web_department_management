@@ -20,9 +20,7 @@ if(isset($_SESSION['username'])){
     die("Error: insert failed" . mysqli_error($connection));
   }
   echo "The professor was deleted!<br>";
-?>
-<?php
-   mysqli_close($connection);
+  mysqli_close($connection);
 ?>
 </body>
 <?php
@@ -30,6 +28,5 @@ if(isset($_SESSION['username'])){
   echo '<a href="logout.php"> Log Out('.$_SESSION['username'].')</a>';
 ?>
 </body>
-</html>
 </html>
 

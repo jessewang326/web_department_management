@@ -1,3 +1,6 @@
+<!-- Remember to add user check for all classes !!!!!!! -->
+
+
 <?php
 session_start();
 if(isset($_SESSION['username'])){
@@ -24,3 +27,21 @@ if(isset($_SESSION['username'])){
 </table>
 <input type="submit" value="getAssignedStu">
 </form>
+
+
+<h4><a href="getClasses.php"> Course List </a></h4>
+<h4> List the TAs of a Course:</h4>
+<form action="getCourseTAs.php" method="post" enctype="multipart/form-data">
+<table>
+<tr><td>CourseNO: </td><td><input type="text" name="courseNO"></td></tr>
+<tr><td>Year: </td><td><input type="text" name="year"></td></tr>
+</table>
+<input type="radio" name="term" value="fall">Fall
+<input type="radio" name="term" value="spring">Spring
+<input type="radio" name="term" value="summer">Summer<br>
+<br>
+<input type="submit" value="getCourseTAs">
+</form>
+
+</body>
+</html>

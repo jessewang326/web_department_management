@@ -24,9 +24,9 @@
         }
         else if($usrGrp == 'Prof' && empty($pwd))
         {
-//          echo '<p> prof </p>';
+          echo '<p> prof </p>';
           $_SESSION['username'] = $usrGrp;
-          $home_url = 'profp.php';
+          $home_url = 'prof.php';
           header('Location: '.$home_url);
         }
         else
@@ -44,6 +44,8 @@
   }
   else
   {
+    echo '<p class="logon">You have not logged off the previous account!</p>';
+    echo '<a href="logout.php"> Log Out('.$_SESSION['username'].')</a>';
 //    $home_url = 'loged.php';
 //    header('Location: '.$home_url);
   }
@@ -56,17 +58,13 @@
 <title>Western Teaching Assistant System</title>
 </head>
 <body>
-<h1>Western Teaching Assistant System</h1>
 <?php
   if(!isset($_SESSION['username'])){
 //    echo '<p> 1 </p>';
     echo '<p class="error">'.$error_msg.'</p>';
     echo '<a href="index2.php"> Retry </a>';
   }
-  else{
-//    echo '<p> 2 </p>';
-    echo '<p class="logon">Hello, '.$usrGrp.'</p>';
-  }
 ?>
+
 </body>
 </html>

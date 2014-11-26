@@ -75,7 +75,7 @@ TA's ID: <input type="text" name="taID"><br>
 <input type="submit" value="addProf">
 </form>
 
-<h4>Delete a TA:</h4>
+<h4>Delete a professor:</h4>
 <form action="delProf.php" method="post" enctype="multipart/form-data">
 TA's ID: <input type="text" name="profID"><br>
 <input type="submit" value="delProf">

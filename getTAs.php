@@ -22,9 +22,9 @@ include 'connectdb.php';
  }
  while ($row=mysqli_fetch_assoc($result)) {
     echo '<li>';
-    echo $row["ta"];
+    echo $row["taFN"]. ' ' . $row["taLN"];
     /////add ta pic later//////
-    ///////echo '<img src="' . $row["petpicture"] . '" height="60" width="60">';
+    echo '<img src="' . $row["image"] . '" height="60" width="60">';
  }
  mysqli_free_result($result);
 ?>
@@ -33,5 +33,9 @@ include 'connectdb.php';
    mysqli_close($connection);
 ?>
 </body>
+<?php
+  echo '<a href="secretary.php"> Back </a> <br>';
+  echo '<a href="logout.php"> Log Out('.$_SESSION['username'].')</a>';
+?>
 </html>
  

@@ -12,21 +12,16 @@ if(isset($_SESSION['username'])){
 <body>
 <?php
   include 'connectdb.php';
-  include 'upload_file.php';
 ?>
 <h1>Add a new TA:</h1>
-<ol>
 <?php
-   $profID = $_POST["profID"];
-   $fn = $_POST["profFN"];
-   $ln = $_POST["profLN"];
-   $query = 'INSERT INTO ta VALUES("' . $fn . '","' . $ln . '","' . $profID . '")';
-   if (!mysqli_query($connection, $query)) {
-        die("Error: insert failed" . mysqli_error($connection));
-    }
-   echo "New professor was added!";
+  $taID = $_POST["taID"];
+  $query = 'DELETE FROM ta WHERE taID = "' . $taID . '"';
+  if (!mysqli_query($connection, $query)) {
+    die("Error: insert failed" . mysqli_error($connection));
+  }
+  echo "TA was deleted!<br>";
 ?>
-</ol>
 <?php
    mysqli_close($connection);
 ?>
@@ -38,3 +33,4 @@ if(isset($_SESSION['username'])){
 </body>
 </html>
 </html>
+

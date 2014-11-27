@@ -16,17 +16,20 @@ include 'connectdb.php';
 <h1>Here are all the classes:</h1>
 <ol>
 <?php
- $query = 'SELECT * FROM assign WHERE ';
- $result=mysqli_query($connection,$query);
- if (!$result) {
+  $courseNO = $_POST["courseNO"];
+  $year = $_POST["year"];
+  $term = $_POST["term"];
+  $query = 'SELECT * FROM assign WHERE courseNO = "' . $courseNO . '" AND year = "' . $year . '" AND term = "' . $term . '"';
+  $result=mysqli_query($connection,$query);
+  if (!$result) {
     die("database ta query failed.");
- }
- while ($row=mysqli_fetch_assoc($result)) {
+  }
+  while ($row=mysqli_fetch_assoc($result)) {
     echo '<li>';
-    echo $row["courseNO"] . ' ' . $row["year"] . ' ' . $row["term"];
- }
- mysqli_free_result($result);
- mysqli_close($connection);
+    echo $row["courseNO"] . ' ' . $row["year"] . ' ' . $row["term"]. ' ' . $row["taID"]. ' ' . $row["students"];
+  }
+  mysqli_free_result($result);
+  mysqli_close($connection);
 ?>
 </ol>
 

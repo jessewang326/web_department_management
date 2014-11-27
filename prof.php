@@ -43,5 +43,11 @@ if(isset($_SESSION['username'])){
 <input type="submit" value="getCourseTAs">
 </form>
 
+<h4><a href="getTAs.php"> TA List </a></h4>
+<h4>List a TA's courses:</h4>
+<form action="getTAcourses.php" method="post" enctype="multipart/form-data">
+TA's ID: <input type="text" name="taID"><br>
+<input type="submit" value="getTAcourses">
+</form>
 </body>
 </html>

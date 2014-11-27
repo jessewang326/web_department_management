@@ -32,7 +32,14 @@ include 'connectdb.php';
 </ol>
 </body>
 <?php
-  echo '<a href="secretary.php"> Back </a> <br>';
+  if($_SESSION['username'] == "Prof")
+  {
+    echo '<a href="prof.php"> Back </a> <br>';
+  }
+  else{
+    echo '<a href="secretary.php"> Back </a> <br>';
+  }
+
   echo '<a href="logout.php"> Log Out('.$_SESSION['username'].')</a>';
 ?>
 </html>

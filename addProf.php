@@ -1,8 +1,13 @@
 <?php
-  session_start();
-  if(isset($_SESSION['username'])){
-  echo 'Hello, '.$_SESSION['username'].'!<br/>';
-}
+session_start();
+  if($_SESSION['username'] == "Secretary"){
+    echo 'Hello, '.$_SESSION['username'].'!<br/>';
+  }
+  else
+  {
+     $home_url = 'wrong.php';
+      header('Location: '.$home_url);
+  }
 ?>
 
 <!DOCTYPE html>

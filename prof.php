@@ -1,11 +1,30 @@
 <!-- Remember to add user check for all classes !!!!!!! -->
-
+<!--------------------------------------------------------------
+*prof.php
+*
+*Computer Science 3319a
+*
+*Assignment 3
+*
+*Author: Jiaxi Wang
+*
+*Email: jwang724@uwo.ca
+*
+*This is a web-based TA management system.
+*
+*This file is the system's professor's main page.
+-------------------------------------------------------------->
 
 <?php
 session_start();
-if(isset($_SESSION['username'])){
-  echo 'Hello, '.$_SESSION['username'].'!<a href="logout.php"> Log Out</a><br/>';
-}
+  if($_SESSION['username'] == "Prof"){
+    echo 'Hello, '.$_SESSION['username'].'<a href="logout.php">(Log out)</a>!<br/>';
+  }
+  else
+  {
+     $home_url = 'wrong.php';
+      header('Location: '.$home_url);
+  }
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +36,10 @@ if(isset($_SESSION['username'])){
 <body>
 
 
+<!-- give a prof list link for the user -->
 <h4><a href="getProfs.php"> Professor List </a></h4>
 
+<!-- get the assigned students of a given professor -->
 <h4>List the students of a professor:</h4>
 <form action="getAssignedStu.php" method="post" enctype="multipart/form-data">
 <table>
@@ -29,7 +50,10 @@ if(isset($_SESSION['username'])){
 </form>
 
 
+<!-- give a class list link for the user -->
 <h4><a href="getClasses.php"> Course List </a></h4>
+
+<!-- get the assigned TAs of a given course -->
 <h4> List the TAs of a Course:</h4>
 <form action="getCourseTAs.php" method="post" enctype="multipart/form-data">
 <table>
@@ -43,7 +67,11 @@ if(isset($_SESSION['username'])){
 <input type="submit" value="getCourseTAs">
 </form>
 
+
+<!-- give a TAs list link for the user -->
 <h4><a href="getTAs.php"> TA List </a></h4>
+
+<!-- get the assigned courses of a given TA -->
 <h4>List a TA's courses:</h4>
 <form action="getTAcourses.php" method="post" enctype="multipart/form-data">
 TA's ID: <input type="text" name="taID"><br>

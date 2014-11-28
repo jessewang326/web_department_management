@@ -1,8 +1,29 @@
+<!--------------------------------------------------------------
+*secretary.php
+*
+*Computer Science 3319a
+*
+*Assignment 3
+*
+*Author: Jiaxi Wang
+*
+*Email: jwang724@uwo.ca
+*
+*This is a web-based TA management system.
+*
+*This file is the system's secretary main page.
+-------------------------------------------------------------->
+
 <?php
-session_start();
-if(isset($_SESSION['username'])){
-  echo 'Hello, '.$_SESSION['username'].'!<a href="logout.php"> Log Out</a><br/>';
-}
+  session_start();
+  if($_SESSION['username'] == "Secretary"){
+    echo 'Hello, '.$_SESSION['username'].'<a href="logout.php">(Log out)</a>!<br/>';
+  }
+  else
+  {
+     $home_url = 'wrong.php';
+      header('Location: '.$home_url);
+  }
 ?>
 
 <!DOCTYPE html>
@@ -10,6 +31,8 @@ if(isset($_SESSION['username'])){
 <head>
 <meta charset="utf-8">
 <title>Western Teaching Assistant System</title>
+
+<!-- the layout setting -->
 <style type="text/css">
 div#container{width: auto;  position:relative;  float:right;}
 div#ta{width:400px;  float:left;  background:#ccc;}
@@ -19,10 +42,14 @@ div#course{width:400px;  float:left;  background:#ccc;}
 </head>
 <body>
 
+
+<!-- the TA-related functionalities column -->
 <div id="ta">
+
+<!-- give a TA list page link -->
 <h4><a href="getTAs.php"> TA List </a></h4>
 
-
+<!-- add a TA into the system -->
 <h4> Add a New TA:</h4>
 <form action="addTA.php" method="post" enctype="multipart/form-data">
 <table>
@@ -40,6 +67,7 @@ div#course{width:400px;  float:left;  background:#ccc;}
 </form>
 
 
+<!-- modify the imformation if a given TA in the system -->
 <h4>TA Modification(All fields must be filled):</h4>
 <form action="modifyTA.php" method="post" enctype="multipart/form-data">
 <table>
@@ -53,17 +81,23 @@ div#course{width:400px;  float:left;  background:#ccc;}
 <input type="submit" value="modifyTA">
 </form>
 
+<!-- delete a TA from the system -->
 <h4>Delete a TA:</h4>
 <form action="delTA.php" method="post" enctype="multipart/form-data">
 TA's ID: <input type="text" name="taID"><br>
 <input type="submit" value="delTA">
 </form>
-
 </div>
 
+
+
+<!-- the professor-related functionalities column -->
 <div id="prof">
+
+<!-- give a professor list page link -->
 <h4><a href="getProfs.php"> Professor List </a></h4>
 
+<!-- add a professor into the system -->
 <h4> Add a New Prof:</h4>
 <form action="addProf.php" method="post" enctype="multipart/form-data">
 <table>
@@ -75,12 +109,15 @@ TA's ID: <input type="text" name="taID"><br>
 <input type="submit" value="addProf">
 </form>
 
+<!-- delete a TA from the system -->
 <h4>Delete a professor:</h4>
 <form action="delProf.php" method="post" enctype="multipart/form-data">
 TA's ID: <input type="text" name="profID"><br>
 <input type="submit" value="delProf">
 </form>
 
+
+<!-- Assign a head/co supervisor to a TA -->
 <h4>Assign a supervisor to a TA:</h4>
 <form action="assignProf.php" method="post" enctype="multipart/form-data">
 <table>
@@ -91,12 +128,16 @@ TA's ID: <input type="text" name="profID"><br>
 <input type="radio" name="suType" value="co">Co-Supervisor<br>
 <input type="submit" value="assignProf">
 </form>
-
 </div>
 
+
+<!-- the course-related functionalities column -->
 <div id="course">
+
+<!-- give a course list page link -->
 <h4><a href="getCourses.php"> Course List </a></h4>
 
+<!-- add a professor into the system -->
 <h4> Add a New Course:</h4>
 <form action="addCourse.php" method="post" enctype="multipart/form-data">
 <table>
@@ -107,13 +148,12 @@ TA's ID: <input type="text" name="profID"><br>
 <input type="submit" value="addCourse">
 </form>
 
+<!-- delete a course from the system -->
 <h4>Delete a Course:</h4>
 <form action="delCourse.php" method="post" enctype="multipart/form-data">
 CourseNO: <input type="text" name="courseNO"><br>
 <input type="submit" value="delCourse">
 </form>
-
-
 </div>
 
 

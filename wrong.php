@@ -2,9 +2,8 @@
   session_start();
   
   if(!isset($_SESSION['username'])){
-    echo 'You must login to finish this action!.';
-    $home_url = 'index2.php';
-    header('Location: '.$home_url);
+    echo 'You must login to finish this action!';
+    echo '<a href="index2.php"> Log in </a> <br>';
   }
   else{
     echo 'your user group does not has the permission to finish this action.';

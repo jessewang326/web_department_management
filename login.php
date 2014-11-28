@@ -1,53 +1,60 @@
+
+<!--------------------------------------------------------------
+*login.php
+*
+*Computer Science 3319a
+*
+*Assignment 3
+*
+*Author: Jiaxi Wang
+*
+*Email: jwang724@uwo.ca
+*
+*This is a web-based TA management system.
+*
+*This file is the login page of the system.
+-------------------------------------------------------------->
+
 <?php
+  //start the login session
   session_start(); 
-//  echo '<p> start </p>';
 
   $error_msg = "";
+  //if the user has not logged in
   if(!isset($_SESSION['username'])){
-//    echo '<p> no username </p>';
-    
     if(isset($_POST['usrGrp'])){
-
-//      echo '<p> usrGrp </p>';
-
       $usrGrp = $_POST['usrGrp'];
-//      echo '<p>'.$usrGrp.'</p>';
       $pwd = strtolower($_POST['pwd']);
-//      echo '<p>'.$pwd.'</p>';
       if(!empty($usrGrp)){
+        //if logged in as Secretary, check the password
         if($usrGrp == 'Secretary' && $pwd == 'janice')
         {
-//          echo '<p> sec </p>';
           $_SESSION['username'] = $usrGrp;
           $home_url = 'secretary.php';
           header('Location: '.$home_url);
         }
         else if($usrGrp == 'Prof' && empty($pwd))
         {
-          echo '<p> prof </p>';
           $_SESSION['username'] = $usrGrp;
           $home_url = 'prof.php';
           header('Location: '.$home_url);
         }
         else
         {
-//          echo '<p> invalid 1 </p>';
           $error_msg = 'invalid username or password.';
         }
       }
       else
       {    
-//        echo '<p> invalid 2 </p>';
         $error_msg = 'invalid username or password.';
       }
     }
   }
   else
   {
+    //echo a welcome msg and a logout button
     echo '<p class="logon">You have not logged off the previous account!</p>';
     echo '<a href="logout.php"> Log Out('.$_SESSION['username'].')</a>';
-//    $home_url = 'loged.php';
-//    header('Location: '.$home_url);
   }
 ?>
 
@@ -60,7 +67,6 @@
 <body>
 <?php
   if(!isset($_SESSION['username'])){
-//    echo '<p> 1 </p>';
     echo '<p class="error">'.$error_msg.'</p>';
     echo '<a href="index2.php"> Retry </a>';
   }

@@ -1,5 +1,31 @@
+
+<!--------------------------------------------------------------
+*getTAcourses.php
+*
+*Computer Science 3319a
+*
+*Assignment 3
+*
+*Author: Jiaxi Wang
+*
+*Email: jwang724@uwo.ca
+*
+*This is a web-based TA management system.
+*
+*This file lists all the courses assigned to a given TA in the system.
+-------------------------------------------------------------->
+
 <?php
-  session_start();
+session_start();
+  if(isset($_SESSION['username']))
+  {
+    echo 'Hello, '.$_SESSION['username'].'!<br/>';
+  }
+  else
+  {
+     $home_url = 'wrong.php';
+      header('Location: '.$home_url);
+  }
 ?>
 
 <!DOCTYPE html>
@@ -57,8 +83,12 @@ include 'connectdb.php';
 
 </body>
 <?php
+  if($_SESSION['username']=="Prof"){
   echo '<a href="prof.php"> Back </a> <br>';
+  }
+  else{
+  echo '<a href="secretary.php"> Back </a> <br>';
+  }
   echo '<a href="logout.php"> Log Out('.$_SESSION['username'].')</a>';
 ?>
 </html>
- 

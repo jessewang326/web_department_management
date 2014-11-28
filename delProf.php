@@ -1,3 +1,20 @@
+<!--------------------------------------------------------------
+*delProfs.php
+*
+*Computer Science 3319a
+*
+*Assignment 3
+*
+*Author: Jiaxi Wang
+*
+*Email: jwang724@uwo.ca
+*
+*This is a web-based TA management system.
+*
+*This file deletes a given professor in the system.
+-------------------------------------------------------------->
+
+
 <?php
 session_start();
   if($_SESSION['username'] == "Secretary"){

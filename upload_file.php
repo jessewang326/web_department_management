@@ -22,7 +22,17 @@
   $extension = strtolower($extension);
   $uploadholder = dirname(__FILE__) . "/upload";
   $uploadFolder = new Folder;
-  if ((($_FILES["file"]["type"] == "image/gif")
+  $name = 'P' . $_POST["studentID"] . '.jpg';
+  list($width, $height) = getimagesize($_FILES["file"]["tmp_name"]); 
+  if ($width != 120 && $height != 150){
+      echo "Invalid size!";
+  }
+  elseif($name != $_FILES["file"]["name"]){
+    echo "file name should be ". $name;
+    echo "file name is ". $_FILES["file"]["name"];
+    echo "Invalid file name!";
+  }
+  else if ((($_FILES["file"]["type"] == "image/gif")
       || ($_FILES["file"]["type"] == "image/jpeg")
       || ($_FILES["file"]["type"] == "image/jpg")
       || ($_FILES["file"]["type"] == "image/pjpeg")

@@ -46,6 +46,8 @@ session_start();
 ?>
 </body>
 <?php
+  //give a professor list page link
+  echo '<h4><a href="getProfs.php"> Professor List </a></h4>';
   echo '<a href="secretary.php"> Back </a> <br>';
   echo '<a href="logout.php"> Log Out('.$_SESSION['username'].')</a>';
 ?>

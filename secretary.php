@@ -72,7 +72,6 @@ div#course{width:400px;  float:left;  background:#ccc;}
 <form action="modifyTA.php" method="post" enctype="multipart/form-data">
 <table>
 <tr><td>TA's ID: </td><td><input type="text" name="taID"></td></tr>
-<tr><td>TA's student ID: </td><td><input type="text" name="studentID"></td></tr>
 <tr><td>TA's First Name: </td><td><input type="text" name="taFN"></td></tr>
 <tr><td>TA's Last Name: </td><td><input type="text" name="taLN"></td></tr>
 </table>

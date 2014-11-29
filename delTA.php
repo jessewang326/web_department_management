@@ -48,6 +48,8 @@ session_start();
 ?>
 </body>
 <?php
+  //give a TA list page link
+  echo '<h4><a href="getTAs.php"> TA List </a></h4>';
   echo '<a href="secretary.php"> Back </a> <br>';
   echo '<a href="logout.php"> Log Out('.$_SESSION['username'].')</a>';
 ?>

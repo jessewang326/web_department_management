@@ -15,11 +15,7 @@
 -------------------------------------------------------------->
 <?php
 session_start();
-  if($_SESSION['username'] == "Secretary"){
-    echo 'Hello, '.$_SESSION['username'].'!<br/>';
-  }
-  else
-  {
+  if($_SESSION['username'] != "Secretary"){
      $home_url = 'wrong.php';
       header('Location: '.$home_url);
   }
@@ -45,13 +41,15 @@ session_start();
    if (!mysqli_query($connection, $query)) {
         die("Error: insert failed" . mysqli_error($connection));
     }
-   echo "New TA was added!";
+   echo "New TA was added!<br>";
 ?>
 <?php
    mysqli_close($connection);
 ?>
 </body>
 <?php
+  //give a TA list page link
+  echo '<h4><a href="getTAs.php"> TA List </a></h4>';
   echo '<a href="secretary.php"> Back </a> <br>';
   echo '<a href="logout.php"> Log Out('.$_SESSION['username'].')</a>';
 ?>

@@ -1,3 +1,20 @@
+
+<!--------------------------------------------------------------
+*folders.php
+*
+*Computer Science 3319a
+*
+*Assignment 3
+*
+*Author: Jiaxi Wang
+*
+*Email: jwang724@uwo.ca
+*
+*This is a web-based TA management system.
+*
+*This file creates a forder for upload files the system.
+-------------------------------------------------------------->
+
 <?php
 class Folder {
     function createFolder($foldername) {
